@@ -707,6 +707,14 @@
     </script>
 
     <script>
+        function toggleVideo() {
+            var video = document.getElementById('videoContainer');
+            video.style.display = (video.style.display === 'none') ? 'block' : 'none';
+        }
+    </script>
+
+
+    <script>
         function toggleVideoIntro() {
             const video = document.getElementById("videoIntro");
             if (!video) return;
