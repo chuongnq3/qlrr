@@ -533,6 +533,7 @@
 
 .feature .feature-item .feature-icon {
     color: var(--bs-primary);
+    margin-top: 20px; /* hoặc padding-top: 8px; nếu muốn icon dịch xuống mà không đẩy các phần khác */
 }
 
 .feature .feature-item .feature-icon,
