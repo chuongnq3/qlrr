@@ -387,8 +387,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.2s">
-                        <a class="btn btn-primary rounded-pill py-3 px-5" href="https://www.canva.com/design/DAGq5AZ_uso/3XjAmYLHEK_wc2YTGL_vPQ/watch">Xem hướng dẫn chi tiết</a>
+                    <!-- Phần hiển thị video ẩn ban đầu -->
+                    <div id="videoContainer" style="display: none; margin-top: 20px;" class="text-center">
+                        <div class="ratio ratio-16x9" style="max-width: 800px; margin: 0 auto;">
+                            <iframe src="https://www.canva.com/design/DAGq5AZ_uso/3XjAmYLHEK_wc2YTGL_vPQ/watch?embed"
+                                allowfullscreen style="border: 0;"></iframe>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -691,6 +695,13 @@
         });
     </script>
 
+    <script>
+      function toggleVideo() {
+        var video = document.getElementById('videoContainer');
+        video.style.display = (video.style.display === 'none') ? 'block' : 'none';
+      }
+    </script>
+        
 </body>
 
 </html>
