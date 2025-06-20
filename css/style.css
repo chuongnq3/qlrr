@@ -1134,13 +1134,3 @@
   background-color: #5a6268 !important;
   color: #fff !important;
 }
-
-.btn-video-opened {
-  background-color: #6c757d !important; /* màu xám */
-  color: #fff !important;
-}
-
-.btn-video-opened:hover {
-  background-color: #5a6268 !important;
-  color: #fff !important;
-}
