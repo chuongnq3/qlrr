@@ -1120,3 +1120,27 @@
   margin-top: 40px; /* tăng từ mặc định để xuống thấp hơn */
 }
 
+
+#videoIntro {
+  transition: all 0.4s ease;
+}
+
+.btn-video-opened {
+  background-color: #6c757d !important; /* Màu xám */
+  color: #fff !important;
+}
+
+.btn-video-opened:hover {
+  background-color: #5a6268 !important;
+  color: #fff !important;
+}
+
+.btn-video-opened {
+  background-color: #6c757d !important; /* màu xám */
+  color: #fff !important;
+}
+
+.btn-video-opened:hover {
+  background-color: #5a6268 !important;
+  color: #fff !important;
+}
