@@ -1116,3 +1116,8 @@
         margin-left: 20%; /* Di chuyển về bên trái ~2/5 chiều rộng màn hình */
     }
 }
+
+.button-group {
+  margin-top: 40px; /* tăng từ mặc định để xuống thấp hơn */
+}
+
