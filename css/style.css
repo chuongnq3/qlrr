@@ -1134,3 +1134,35 @@
   background-color: #5a6268 !important;
   color: #fff !important;
 }
+
+.testimonial .owl-nav .owl-prev,
+.testimonial .owl-nav .owl-next {
+    position: absolute;
+    top: -58px;
+    background: var(--bs-dark);       /* Màu nền mặc định là màu tối */
+    color: var(--bs-white);
+    padding: 5px 30px;
+    border-radius: 30px;
+    transition: 0.5s;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    touch-action: manipulation;
+}
+
+.testimonial .owl-nav .owl-prev {
+    left: 0;
+}
+
+.testimonial .owl-nav .owl-next {
+    right: 0;
+}
+
+/* Khi hover hoặc bấm chuyển sang màu cam (màu chính) */
+.testimonial .owl-nav .owl-prev:hover,
+.testimonial .owl-nav .owl-next:hover,
+.testimonial .owl-nav .owl-prev:active,
+.testimonial .owl-nav .owl-next:active {
+    background: var(--bs-primary);
+    color: var(--bs-white);
+}
+
