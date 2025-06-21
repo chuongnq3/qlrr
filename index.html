@@ -710,14 +710,40 @@
     </script>
 
     <script>
+        function resetIframe(containerId) {
+            const container = document.getElementById(containerId);
+            const iframeWrapper = container.querySelector('.ratio');
+            const oldIframe = iframeWrapper.querySelector('iframe');
+            const src = oldIframe.getAttribute('src');
+            oldIframe.remove();
+
+            const newIframe = document.createElement('iframe');
+            newIframe.setAttribute('src', src);
+            newIframe.setAttribute('allowfullscreen', '');
+            newIframe.setAttribute('style', 'border: 0; width: 100%; height: 100%;');
+            iframeWrapper.appendChild(newIframe);
+        }
+
         function toggleVideoIntro() {
-            const video = document.getElementById("videoIntro");
+            const intro = document.getElementById("videoIntro");
+            const detail = document.getElementById("videoContainer");
             const btn = document.getElementById("toggleVideoIntroBtn");
             const label = btn.querySelector('.label');
             const icon = btn.querySelector('i');
 
-            const isHidden = window.getComputedStyle(video).display === "none";
-            video.style.display = isHidden ? "block" : "none";
+            const isHidden = window.getComputedStyle(intro).display === "none";
+
+            // Nếu đang ẩn, thì cần ẩn video còn lại trước
+            if (isHidden) {
+                detail.style.display = "none";
+                resetIframe("videoContainer");
+                document.getElementById("toggleVideoDetailBtn").classList.remove("btn-video-opened");
+                document.querySelector("#toggleVideoDetailBtn .label").textContent = "Xem hướng dẫn chi tiết";
+                document.querySelector("#toggleVideoDetailBtn i").classList.remove("fa-times");
+                document.querySelector("#toggleVideoDetailBtn i").classList.add("fa-play-circle");
+            }
+
+            intro.style.display = isHidden ? "block" : "none";
 
             if (isHidden) {
                 btn.classList.add("btn-video-opened");
@@ -725,6 +751,7 @@
                 icon.classList.remove("fa-play-circle");
                 icon.classList.add("fa-times");
             } else {
+                resetIframe("videoIntro");
                 btn.classList.remove("btn-video-opened");
                 label.textContent = "Video giới thiệu";
                 icon.classList.remove("fa-times");
@@ -732,18 +759,26 @@
             }
         }
 
-    </script>
 
-
-    <script>
         function toggleVideo() {
-            const video = document.getElementById("videoContainer");
+            const detail = document.getElementById("videoContainer");
+            const intro = document.getElementById("videoIntro");
             const btn = document.getElementById("toggleVideoDetailBtn");
             const label = btn.querySelector('.label');
             const icon = btn.querySelector('i');
 
-            const isHidden = window.getComputedStyle(video).display === "none";
-            video.style.display = isHidden ? "block" : "none";
+            const isHidden = window.getComputedStyle(detail).display === "none";
+
+            if (isHidden) {
+                intro.style.display = "none";
+                resetIframe("videoIntro");
+                document.getElementById("toggleVideoIntroBtn").classList.remove("btn-video-opened");
+                document.querySelector("#toggleVideoIntroBtn .label").textContent = "Video giới thiệu";
+                document.querySelector("#toggleVideoIntroBtn i").classList.remove("fa-times");
+                document.querySelector("#toggleVideoIntroBtn i").classList.add("fa-play-circle");
+            }
+
+            detail.style.display = isHidden ? "block" : "none";
 
             if (isHidden) {
                 btn.classList.add("btn-video-opened");
@@ -751,14 +786,15 @@
                 icon.classList.remove("fa-play-circle");
                 icon.classList.add("fa-times");
             } else {
+                resetIframe("videoContainer");
                 btn.classList.remove("btn-video-opened");
                 label.textContent = "Xem hướng dẫn chi tiết";
                 icon.classList.remove("fa-times");
                 icon.classList.add("fa-play-circle");
             }
         }
-    </script>
 
+    </script>
 
 </body>
 
